@@ -20,7 +20,7 @@ class TaskSeeder extends Seeder
          -> each(function($task) {
 
            $employee = Employee::inRandomOrder() -> first();
-           $task -> employee_id = $employee -> id;
+           $task -> employee() -> associate($employee);
            $task -> save();
          });
 

@@ -9,7 +9,11 @@
 
       <li>
 
-        {{ $employee -> name }}
+        <a href="{{ route('emp-show', $employee -> id )}}">
+
+         {{ $employee -> name }}
+
+        </a>
 
         <ol>
           @foreach ($employee -> tasks as $tasks)

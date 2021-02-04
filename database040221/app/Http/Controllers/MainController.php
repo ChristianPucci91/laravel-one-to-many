@@ -12,5 +12,13 @@ class MainController extends Controller
 
       $employees = Employee::all();
       return view('pages.emp-index',compact('employees'));
+
+    }
+
+    public function empShow($id) {
+
+     $employee = Employee::findOrFail($id);
+     return view('pages.emp-show', compact('employee'));
+
     }
 }

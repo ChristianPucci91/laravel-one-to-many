@@ -4,9 +4,10 @@
 
   <h1>NEW TASK</h1>
 
-  <form action="index.html" method="post">
+  <form action="{{ route('task-store') }}" method="post">
 
     @csrf
+    @method('POST')
 
       <label for="title">Title</label>
       <input type="text" name="title" value="">

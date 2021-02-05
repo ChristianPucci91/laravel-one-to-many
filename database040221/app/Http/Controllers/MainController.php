@@ -38,4 +38,16 @@ class MainController extends Controller
       return view('pages.task-create',compact('employees'));
 
     }
+
+    public function taskStore(Request $request) {
+
+     $newTask = Task::make($request -> all());
+     $employee = Employee::findOrFail($request -> get('employee_id'));
+     $newTask -> employee() -> associate($employee);
+     $newTask -> save();
+
+     return redirect() -> route('task-index');
+
+
+    }
 }

@@ -24,3 +24,6 @@ Route::post('/tasks/store', 'MainController@taskStore')
 
 Route::get('/tasks/edit/{id}', 'MainController@taskEdit')
   -> name('task-edit');
+
+Route::post('/tasks/update/{id}', 'MainController@taskUpdate')
+  -> name('task-update');

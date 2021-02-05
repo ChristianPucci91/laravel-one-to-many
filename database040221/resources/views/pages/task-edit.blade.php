@@ -4,7 +4,7 @@
 
   <h1>EDIT TASK: {{ $task -> id}}</h1>
 
-  <form action="{{ route('task-store') }}" method="post">
+  <form action="{{ route('task-update', $task -> id) }}" method="post">
 
     @csrf
     @method('POST')
@@ -36,14 +36,14 @@
             @endif
 
             >{{ $employee -> name}}
-            
+
           </option>
 
         @endforeach
 
       </select>
 
-      <input type="submit" name="" value="Salva">
+      <input type="submit" name="" value="Aggiorna">
 
 
 

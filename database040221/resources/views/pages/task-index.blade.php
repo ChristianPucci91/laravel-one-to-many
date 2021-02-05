@@ -9,8 +9,11 @@
   @foreach ($tasks as $task)
 
     <li>
-       {{ $task -> title}}
-       ({{ $task -> employee -> name}})
+      
+      {{ $task -> title}}
+      ({{ $task -> employee -> name}})
+      <a href="{{ route('task-edit', $task -> id )}}">EDIT</a>
+
     </li>
 
   @endforeach

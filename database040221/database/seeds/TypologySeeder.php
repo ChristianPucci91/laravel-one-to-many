@@ -19,7 +19,7 @@ class TypologySeeder extends Seeder
          -> each(function($typology) {
 
           $tasks = Task::inRandomOrder()
-          -> limit(5) -> get();
+          -> limit(1) -> get();
           $typology -> tasks() -> attach($tasks);
 
          });

@@ -8,10 +8,12 @@
   @foreach ($typologies as $typology)
 
     <li>
+      <a href="{{ route('typology-show', $typology -> id )}}">
 
-      {{ $typology -> name }}
-      {{ $typology -> description }}
+        {{ $typology -> name }}
+        {{ $typology -> description }}
 
+     </a>
     </li>
 
   @endforeach

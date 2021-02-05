@@ -35,3 +35,6 @@ Route::post('/tasks/update/{id}', 'MainController@taskUpdate')
 
 Route::get('/typologies', 'MainController@typologyIndex')
   -> name('typology-index');
+
+Route::get('typology/{id}', 'MainController@typologyShow')
+  -> name('typology-show');

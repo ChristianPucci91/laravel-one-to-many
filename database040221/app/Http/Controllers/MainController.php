@@ -82,4 +82,11 @@ class MainController extends Controller
       return view('pages.typology-index',compact('typologies'));
 
     }
+
+    public function typologyShow($id) {
+
+     $typology = Typology::findOrFail($id);
+     return view('pages.typology-show',compact('typology'));
+
+    }
 }

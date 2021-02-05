@@ -9,6 +9,7 @@ use App\Task;
 
 class MainController extends Controller
 {
+    // EMPLOYEE
     public function empIndex() {
 
       $employees = Employee::all();
@@ -23,10 +24,18 @@ class MainController extends Controller
 
     }
 
+    // TASKS
     public function taskIndex() {
 
      $tasks = Task::all();
      return view('pages.task-index', compact('tasks'));
+
+    }
+
+    public function taskCreate() {
+
+      $employees = Employee::all();
+      return view('pages.task-create',compact('employees'));
 
     }
 }

@@ -30,3 +30,8 @@ Route::get('/tasks/edit/{id}', 'MainController@taskEdit')
 
 Route::post('/tasks/update/{id}', 'MainController@taskUpdate')
   -> name('task-update');
+
+//TYPOLOGIES
+
+Route::get('/typologies', 'MainController@typologyIndex')
+  -> name('typology-index');

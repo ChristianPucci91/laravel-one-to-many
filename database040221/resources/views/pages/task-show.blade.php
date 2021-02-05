@@ -7,11 +7,13 @@
   <ul>
 
 
-      <li> Title: {{$task -> title}} </li>
-      <li> Description: {{$task -> description}} </li>
-      <li> Priority: {{$task -> priority}} </li>
+      <li> Title: {{$tasks -> title}} </li>
+      <li> Description: {{$tasks -> description}} </li>
+      <li> Priority: {{$tasks -> priority}} </li>
 
 
   </ul>
+
+
 
 @endsection

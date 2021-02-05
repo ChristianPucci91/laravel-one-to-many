@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Task;
 use App\Typology;
 
 class TypologySeeder extends Seeder
@@ -13,6 +14,14 @@ class TypologySeeder extends Seeder
      */
     public function run()
     {
-        Factory(Typology::class, 10) -> create();
+        Factory(Typology::class, 10)
+         -> create()
+         -> each(function($typology) {
+
+          $tasks = Task::inRandomOrder()
+          -> limit(5) -> get();
+          $typology -> tasks() -> attach($tasks);
+
+         });
     }
 }

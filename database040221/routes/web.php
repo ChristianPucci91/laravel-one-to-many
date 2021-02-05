@@ -16,6 +16,9 @@ Route::get('/employee/{id}', 'MainController@empShow')
 Route::get('/tasks', 'MainController@taskIndex')
    -> name('task-index');
 
+Route::get('/tasks/show/{id}', 'MainController@taskShow')
+   -> name('task-show');
+
 Route::get('/tasks/create' , 'MainController@taskCreate')
    -> name('task-create');
 

@@ -16,9 +16,9 @@
         </a>
 
         <ol>
-          @foreach ($employee -> tasks as $tasks)
+          @foreach ($employee -> tasks as $task)
 
-            <li> {{ $tasks -> title}}</li>
+            <li> {{ $task -> title}}</li>
 
           @endforeach
         </ol>

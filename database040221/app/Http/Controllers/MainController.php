@@ -32,6 +32,12 @@ class MainController extends Controller
 
     }
 
+    public function taskShow($id) {
+
+      $task = Task::findOrFail($id);
+      return view('pages.task-show',compact('task'));
+    }
+
     public function taskCreate() {
 
       $employees = Employee::all();

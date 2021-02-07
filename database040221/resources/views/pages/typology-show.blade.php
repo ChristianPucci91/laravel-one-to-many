@@ -5,11 +5,12 @@
   <h1>Typology:</h1>
 
   <ul>
+    <div class="box">
 
       <li> name: {{$typology -> name}} </li>
       <li> Description: {{$typology -> description}} </li>
 
-      <h2>Tasks:</h2>
+      <p>Tasks:</p>
 
       @foreach ($typology -> tasks as $task)
 
@@ -17,6 +18,7 @@
 
       @endforeach
 
+   </div>
   </ul>
 
 @endsection

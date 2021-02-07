@@ -7,23 +7,23 @@
   <ul>
     @foreach ($employees as $employee)
 
-      <li>
+        <div class = "box">
+          <p>Employee name:</p>
+          <a href="{{ route('emp-show', $employee -> id )}}">
 
-        <a href="{{ route('emp-show', $employee -> id )}}">
+            {{ $employee -> name }}
 
-         {{ $employee -> name }}
+          </a>
 
-        </a>
+          <ol>
+            <p>Tasks:</p>
+            @foreach ($employee -> tasks as $task)
 
-        <ol>
-          @foreach ($employee -> tasks as $task)
+              <li> {{ $task -> title}}</li>
 
-            <li> {{ $task -> title}}</li>
-
-          @endforeach
-        </ol>
-
-      </li>
+            @endforeach
+          </ol>
+       </div>
 
     @endforeach
   </ul>

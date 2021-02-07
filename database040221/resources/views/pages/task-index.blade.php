@@ -4,18 +4,17 @@
 
   <h1>Tasks:</h1>
 
-  <a href="{{ route('task-create')}}">CREATE NEW TASK</a>
-
   @foreach ($tasks as $task)
 
-    <li>
-      
-      {{ $task -> title}}
-      ({{ $task -> employee -> name}})
-      <a href="{{ route('task-edit', $task -> id )}}">EDIT</a>
+   <ul>
+      <div class = "box">
 
-    </li>
+        {{ $task -> title}}
+        ({{ $task -> employee -> name}})
+        <a href="{{ route('task-edit', $task -> id )}}">EDIT</a>
 
+      </div>
+   </ul>
   @endforeach
 
 @endsection

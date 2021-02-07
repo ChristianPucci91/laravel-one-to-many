@@ -4,17 +4,20 @@
 
   <h1>Typologies:</h1>
 
-
   @foreach ($typologies as $typology)
 
-    <li>
-      <a href="{{ route('typology-show', $typology -> id )}}">
+    <ul>
+      <div class="box">
 
-        {{ $typology -> name }}
-        {{ $typology -> description }}
+        <a class="color" href="{{ route('typology-show', $typology -> id )}}">
 
-     </a>
-    </li>
+          {{ $typology -> name }}
+          {{ $typology -> description }}
+
+        </a>
+
+     </div>
+   </ul>
 
   @endforeach
 

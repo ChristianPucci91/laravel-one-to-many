@@ -139,6 +139,12 @@ class MainController extends Controller
     public function typologyUpdate(Request $request, $id) {
 
       $data = $request -> all();
-      dd($data);
+      $typology = Typology::findOrFail($id);
+      $typology -> update($data);
+      $tasks = Task::findOrFail($data['tasks']);
+      $typology -> tasks() -> sync($tasks);
+
+      return redirect() -> route('typology-show', $typology -> id);
+
     }
 }

@@ -50,3 +50,9 @@ Route::get('typology/create','MainController@typologyCreate')
 
 Route::post('typology/store', 'MainController@typologyStore')
   -> name('typology-store');
+
+Route::get('typology/edit/{id}','MainController@typologyEdit')
+ -> name('typology-edit');
+
+Route::post('typology/update/{id}','MainController@typologyUpdate')
+  -> name('typology-update');

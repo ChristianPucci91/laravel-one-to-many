@@ -127,4 +127,18 @@ class MainController extends Controller
       return redirect() -> route('typology-show', $typology -> id);
 
     }
+
+    public function typologyEdit($id) {
+
+      $typology = Typology::findOrFail($id);
+      $tasks = Task::all();
+      return view('pages.typology-edit',compact('typology','tasks'));
+
+    }
+
+    public function typologyUpdate(Request $request, $id) {
+
+      $data = $request -> all();
+      dd($data);
+    }
 }

@@ -12,12 +12,15 @@
 
       <p>Tasks:</p>
 
-      @foreach ($typology -> tasks as $task)
+      <ol>
 
-        {{$task -> title}}
+        @foreach ($typology -> tasks as $task)
 
-      @endforeach
+          <li>  {{$task -> title}}</li>
 
+        @endforeach
+        
+      </ol>
    </div>
   </ul>
 

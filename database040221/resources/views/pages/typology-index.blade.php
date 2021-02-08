@@ -13,12 +13,13 @@
     <ul>
       <div class="box">
 
+         Name: 
         <a class="color" href="{{ route('typology-show', $typology -> id )}}">
 
           {{ $typology -> name }}
-          {{ $typology -> description }}
 
         </a>
+        <p> Description: {{ $typology -> description }}</p>
 
      </div>
    </ul>

@@ -37,11 +37,7 @@ class MainController extends Controller
       $employee = Employee::create($request -> all());
       $task = Task::findOrFail($request -> get('task_id'));
 
-        dd($employee,$task);
-
-      $employee -> tasks() -> attach($task);
-
-      $employee -> save();
+      $employee -> tasks() -> save($task);
 
       return redirect() -> route('emp-show', $employee -> id);
     }
@@ -122,6 +118,13 @@ class MainController extends Controller
     public function typologyStore(Request $request) {
 
       $data = $request -> all();
-      dd($data);
+
+      $typology = Typology::create($request -> all());
+      $typology -> save();
+
+      $tasks = Task::findOrFail($data['tasks']);
+      $typology -> tasks() -> attach($tasks);
+      return redirect() -> route('typology-show', $typology -> id);
+
     }
 }

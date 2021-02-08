@@ -19,26 +19,15 @@
 
       <br>
 
-      <label for="employee_id">Employee</label>
-      <select name="employee_id">
-
-        @foreach ($employees as $employee)
-
-          <option value="{{$employee -> id}}">{{ $employee -> name}}</option>
-
-        @endforeach
-
-      </select>
-
-      <br>
-
       <label for="tasks[]">Choose tasks</label>
 
-      @foreach ($tasks as $task)
+        @foreach ($tasks as $task)
+         <div class="checkbox">
 
-        <input name="tasks[]"type="checkbox" name="" value="{{ $task -> id}}"> {{$task -> title}}
+          <p>{{ $task -> title}}</p><input name="tasks[]"type="checkbox" name="" value="{{ $task -> id}}">
 
-      @endforeach
+        </div>
+        @endforeach
 
 
       <br><br>

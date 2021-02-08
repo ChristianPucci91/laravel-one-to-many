@@ -7,8 +7,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'MainController@empIndex')
    -> name('emp-index');
 
-Route::get('/employee/{id}', 'MainController@empShow')
+Route::get('/employee/show/{id}', 'MainController@empShow')
    -> name('emp-show');
+
+Route::get('/employee/create','MainController@empCreate')
+   -> name('emp-create');
+
+Route::post('/employee/store','MainController@empStore')
+   -> name('emp-store');
 
 
 //TASKS
@@ -36,5 +42,11 @@ Route::post('/tasks/update/{id}', 'MainController@taskUpdate')
 Route::get('/typologies', 'MainController@typologyIndex')
   -> name('typology-index');
 
-Route::get('typology/{id}', 'MainController@typologyShow')
+Route::get('typology/show/{id}', 'MainController@typologyShow')
   -> name('typology-show');
+
+Route::get('typology/create','MainController@typologyCreate')
+  -> name('typology-create');
+
+Route::post('typology/store', 'MainController@typologyStore')
+  -> name('typology-store');

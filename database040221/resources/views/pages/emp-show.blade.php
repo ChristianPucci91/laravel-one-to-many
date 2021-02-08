@@ -2,23 +2,27 @@
 
 @section('content')
 
-  <h1>Employee's tasks:</h1>
+  <h1>Employee's details & tasks:</h1>
 
   <ul>
+    <div class = "box">
 
-    @foreach ( $employee -> tasks as $task)
+      <p>Name: {{ $employee -> name}}</p>
+      <p>Lastname: {{ $employee -> lastname}}</p>
+      <p>Date of Birth: {{ $employee -> dateOfBirth}}</p>
 
-      <div class = "box">
-        <a class = "color" href="{{ route('task-show', $task -> id) }}">
+      <p> Tasks: </p>
 
-        {{$task -> title}}
+      @foreach ( $employee -> tasks as $task)
 
-        </a>
+          <a class = "color" href="{{ route('task-show', $task -> id) }}">
 
-      </div>
+          {{$task -> title}}
 
-    @endforeach
+          </a>
 
+      @endforeach
+   </div>
   </ul>
 
 

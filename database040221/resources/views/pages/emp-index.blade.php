@@ -4,6 +4,8 @@
 
   <h1>Employees:</h1>
 
+  <a href="{{ route('emp-create')}}">Create new Emp</a>
+
   <ul>
     @foreach ($employees as $employee)
 

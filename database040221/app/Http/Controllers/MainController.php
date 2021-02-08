@@ -25,6 +25,27 @@ class MainController extends Controller
 
     }
 
+    public function empCreate() {
+
+      $tasks = Task::all();
+      return view('pages.emp-create',compact('tasks'));
+
+    }
+
+    public function empStore(Request $request) {
+
+      $employee = Employee::create($request -> all());
+      $task = Task::findOrFail($request -> get('task_id'));
+
+        dd($employee,$task);
+
+      $employee -> tasks() -> attach($task);
+
+      $employee -> save();
+
+      return redirect() -> route('emp-show', $employee -> id);
+    }
+
     // TASKS
     public function taskIndex() {
 
@@ -88,5 +109,19 @@ class MainController extends Controller
      $typology = Typology::findOrFail($id);
      return view('pages.typology-show',compact('typology'));
 
+    }
+
+    public function typologyCreate() {
+
+     $employees = Employee::all();
+     $tasks = Task::all();
+     return view('pages.typology-create',compact('employees','tasks'));
+
+    }
+
+    public function typologyStore(Request $request) {
+
+      $data = $request -> all();
+      dd($data);
     }
 }

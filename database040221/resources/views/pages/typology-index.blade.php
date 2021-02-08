@@ -4,6 +4,10 @@
 
   <h1>Typologies:</h1>
 
+  <h3>
+   <a href="{{ route('typology-create')}}">Create new typology</a>
+  </h3>
+
   @foreach ($typologies as $typology)
 
     <ul>

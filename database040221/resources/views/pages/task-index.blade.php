@@ -4,6 +4,10 @@
 
   <h1>Tasks:</h1>
 
+  <h3>
+   <a href="{{ route('task-create')}}">Create new Task</a>
+  </h3>
+
   @foreach ($tasks as $task)
 
    <ul>

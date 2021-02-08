@@ -34,6 +34,17 @@
         @endforeach
 
       </select>
+      <br><br>
+
+      <label for="typologies[]">Typolgies:</label>
+
+      <br><br>
+      @foreach ($typologies as $typology)
+
+        {{ $typology -> name}}
+        <input type="checkbox" name="typologies[]" value="{{ $typology -> id}}">
+
+      @endforeach
 
       <input type="submit" name="" value="Salva">
 

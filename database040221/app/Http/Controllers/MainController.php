@@ -59,16 +59,21 @@ class MainController extends Controller
     public function taskCreate() {
 
       $employees = Employee::all();
-      return view('pages.task-create',compact('employees'));
+      $typologies = Typology::all();
+      return view('pages.task-create',compact('employees','typologies'));
 
     }
 
     public function taskStore(Request $request) {
 
+     $data = $request -> all();
      $newTask = Task::make($request -> all());
      $employee = Employee::findOrFail($request -> get('employee_id'));
      $newTask -> employee() -> associate($employee);
      $newTask -> save();
+
+     $typologies = Typology::findOrFail($data['typologies']);
+     $newTask -> typologies() -> attach($typologies);
 
      return redirect() -> route('task-index');
 
@@ -76,17 +81,25 @@ class MainController extends Controller
     public function taskEdit($id) {
 
      $employees = Employee::all();
+     $typologies = Typology::all();
      $task = Task::findOrFail($id);
-     return view('pages.task-edit', compact('employees','task'));
+     return view('pages.task-edit', compact('employees','task','typologies'));
 
     }
 
     public function taskUpdate(Request $request , $id) {
 
+      $data = $request -> all();
+
       $task = Task::findOrFail($id);
       $employee = Employee::findOrFail($request -> get('employee_id'));
+      $task -> update($data);
       $task -> employee() -> associate($employee);
-      $task -> update($request -> all());
+      $task -> save();
+
+      $typologies = Typology::findOrFail($data['typologies']);
+      $task -> typologies() -> sync($typologies);
+      
       return redirect() -> route('task-index');
 
     }

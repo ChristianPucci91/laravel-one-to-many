@@ -12,9 +12,19 @@
 
    <ul>
       <div class = "box">
+        <a href="{{ route('task-show', $task -> id )}}">{{ $task -> title}}</a>
 
-        {{ $task -> title}}
         ({{ $task -> employee -> name}})
+
+        <p>Typologies:</p>
+        @foreach ($task -> typologies as $typology)
+
+        <li>  {{ $typology -> name}} </li>
+
+
+
+        @endforeach
+          <br><br>
         <a href="{{ route('task-edit', $task -> id )}}">EDIT</a>
 
       </div>

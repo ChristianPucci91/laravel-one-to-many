@@ -4,6 +4,25 @@
 
   <h1>NEW EMP</h1>
 
+  <br><br>
+
+
+    @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+
+                <h3>
+
+                  <li>{{ $error }}</li>
+
+                </h3>
+
+              @endforeach
+          </ul>
+      </div>
+    @endif
+
   <form action="{{ route('emp-store') }}" method="post">
 
     @csrf

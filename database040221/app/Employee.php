@@ -10,7 +10,7 @@ class Employee extends Model
 
       'name',
       'lastname',
-      'dateOfBirth'
+      'dateOfBirth' 
 
     ];
 

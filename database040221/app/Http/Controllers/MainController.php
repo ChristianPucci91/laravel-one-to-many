@@ -35,6 +35,12 @@ class MainController extends Controller
 
     public function empStore(Request $request) {
 
+      Validator::make($request -> all(), [
+            'name' => 'required|alpha',
+            'lastname' => 'required|alpha',
+            'dateOfBirth' => 'nullable|date_format:Y-m-d',
+        ]) -> validate();
+
       $employee = Employee::create($request -> all());
       $task = Task::findOrFail($request -> get('task_id'));
 
@@ -70,7 +76,7 @@ class MainController extends Controller
      $data = $request -> all();
 
      Validator::make($data, [
-           'title' => 'required',
+           'title' => 'required|alpha',
            'description' => 'required|alpha',
            'priority' => 'required|integer|between:1,5',
        ]) -> validate();
@@ -100,7 +106,7 @@ class MainController extends Controller
       $data = $request -> all();
 
       Validator::make($data, [
-            'title' => 'required',
+            'title' => 'required|alpha',
             'description' => 'required|alpha',
             'priority' => 'required|integer|between:1,5',
         ]) -> validate();
@@ -146,6 +152,11 @@ class MainController extends Controller
 
       $data = $request -> all();
 
+      Validator::make($data, [
+            'name' => 'required|alpha|min:3|max:30',
+            'description' => 'required|alpha|min:8|max:50',
+        ]) -> validate();
+
       $typology = Typology::create($request -> all());
       $typology -> save();
 
@@ -166,6 +177,12 @@ class MainController extends Controller
     public function typologyUpdate(Request $request, $id) {
 
       $data = $request -> all();
+
+      Validator::make($data, [
+            'name' => 'required|alpha|min:3|max:30',
+            'description' => 'required|alpha|min:8|max:50',
+        ]) -> validate();
+
       $typology = Typology::findOrFail($id);
       $typology -> update($data);
       $tasks = Task::findOrFail($data['tasks']);

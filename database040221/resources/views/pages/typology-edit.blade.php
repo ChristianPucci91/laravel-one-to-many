@@ -4,6 +4,24 @@
 
   <h1>EDIT TYPOLOGY</h1>
 
+  <br><br>
+
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+
+              <h3>
+
+                <li>{{ $error }}</li>
+
+              </h3>
+
+            @endforeach
+        </ul>
+    </div>
+  @endif
+
   <form  action="{{ route('typology-update', $typology -> id)}}"method="post">
 
     @csrf

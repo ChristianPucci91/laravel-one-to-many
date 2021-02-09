@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 use App\Employee;
 use App\Task;
@@ -67,6 +68,12 @@ class MainController extends Controller
     public function taskStore(Request $request) {
 
      $data = $request -> all();
+
+     Validator::make($data, [
+           'title' => 'required',
+           'description' => 'required|min:5|max:20'
+       ]) -> validate();
+       
      $newTask = Task::make($request -> all());
      $employee = Employee::findOrFail($request -> get('employee_id'));
      $newTask -> employee() -> associate($employee);
@@ -99,7 +106,7 @@ class MainController extends Controller
 
       $typologies = Typology::findOrFail($data['typologies']);
       $task -> typologies() -> sync($typologies);
-      
+
       return redirect() -> route('task-index');
 
     }

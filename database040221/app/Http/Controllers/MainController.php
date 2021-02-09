@@ -71,9 +71,10 @@ class MainController extends Controller
 
      Validator::make($data, [
            'title' => 'required',
-           'description' => 'required|min:5|max:20'
+           'description' => 'required|alpha',
+           'priority' => 'required|integer|between:1,5',
        ]) -> validate();
-       
+
      $newTask = Task::make($request -> all());
      $employee = Employee::findOrFail($request -> get('employee_id'));
      $newTask -> employee() -> associate($employee);
@@ -97,6 +98,12 @@ class MainController extends Controller
     public function taskUpdate(Request $request , $id) {
 
       $data = $request -> all();
+
+      Validator::make($data, [
+            'title' => 'required',
+            'description' => 'required|alpha',
+            'priority' => 'required|integer|between:1,5',
+        ]) -> validate();
 
       $task = Task::findOrFail($id);
       $employee = Employee::findOrFail($request -> get('employee_id'));
